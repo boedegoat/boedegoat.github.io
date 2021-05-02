@@ -1,0 +1,16 @@
+.navbar-brand {
+  font-family: 'Lobster Two', cursive;
+}
+.jumbotron {
+  padding: 6rem 0 0;
+}
+#projects,
+.jumbotron {
+  background-color: #95d5b2;
+}
+footer {
+  background-color: #40916c;
+}
+section {
+  padding: 5rem 0 0;
+}

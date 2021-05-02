@@ -41,7 +41,7 @@
       style="background-color: #40916c"
     >
       <div class="container">
-        <a class="navbar-brand" href="#home">Boedegoat</a>
+        <a class="navbar-brand" href="#home"></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -76,8 +76,10 @@
     <!-- jumbo -->
     <div class="jumbotron text-center">
       <img src="img/profile.jpg" alt="profile" width="200" class="rounded-circle img-thumbnail" />
-      <h1 class="display-4 fw-bold">Boedegoat</h1>
-      <p class="lead">Makhluk ciptaan Tuhan</p>
+      <div class="jumbotron-text">
+        <h1 class="display-4 fw-bold">Boedegoat</h1>
+        <p class="lead">Makhluk ciptaan Tuhan</p>
+      </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#ffffff"
@@ -360,6 +362,17 @@
       AOS.init({
         once: true,
       });
+    </script>
+
+    <!-- GSAP JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js"></script>
+    <script>
+      gsap.registerPlugin(TextPlugin);
+      gsap.from('.jumbotron img', { duration: 1, y: -100, opacity: 0, ease: 'bounce' });
+      gsap.from('.navbar', { duration: 1.5, y: -100, opacity: 0 });
+      gsap.from('.jumbotron-text', { duration: 1, y: 50, opacity: 0, delay: 1, ease: 'back' });
+      gsap.to('.navbar-brand', { duration: 2, text: 'Boedegoat', delay: 1.2, ease: 'none' });
     </script>
 
     <!-- Send Forms to Google Sheet -->

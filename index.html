@@ -212,12 +212,7 @@
               role="alert"
             >
               <strong>Terima Kasih!</strong> Pesan ente sudah berhasil terkirim.
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-              ></button>
+              <button type="button" class="btn-close btn-close-alert-contact"></button>
             </div>
             <form name="portfolio-contact-form">
               <div class="mb-3">
@@ -229,6 +224,7 @@
                   aria-describedby="name"
                   placeholder="Your Full Name"
                   name="nama"
+                  required
                 />
               </div>
               <div class="mb-3">
@@ -240,6 +236,7 @@
                   aria-describedby="email"
                   placeholder="your.email@example.com"
                   name="email"
+                  required
                 />
               </div>
               <div class="mb-3">
@@ -250,6 +247,7 @@
                   rows="3"
                   placeholder="blablabla..."
                   name="pesan"
+                  required
                 ></textarea>
               </div>
               <button type="submit" class="btn btn-success btn-kirim">Submit</button>
@@ -300,6 +298,7 @@
       const form = document.forms['portfolio-contact-form'];
 
       // Dom
+      const btnCloseAlertContact = document.querySelector('.btn-close-alert-contact');
       const btnKirim = document.querySelector('.btn-kirim');
       const btnLoading = document.querySelector('.btn-loading');
       const alertContact = document.querySelector('.alert-contact');
@@ -311,14 +310,25 @@
         // tampilkan tombol loading, hilangkan tombol kirim
         btnLoading.classList.remove('d-none');
         btnKirim.classList.add('d-none');
+
+        // kalo diklik hilangkan alert
+        btnCloseAlertContact.addEventListener('click', () => {
+          alertContact.classList.add('d-none');
+        });
+
         fetch(scriptURL, { method: 'POST', body: new FormData(form) })
           .then((response) => {
             // tampilkan tombol kirim dan alertnya, hilangkan tombol loading
             btnLoading.classList.add('d-none');
             btnKirim.classList.remove('d-none');
-            alertContact.classList.remove('d-none');
+
             // reset form
             form.reset();
+
+            // tampilkan alert contact
+            alertContact.classList.remove('d-none');
+
+            // log
             console.log('Success!', response);
           })
           .catch((error) => console.error('Error!', error.message));

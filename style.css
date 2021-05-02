@@ -14,3 +14,6 @@ footer {
 section {
   padding: 5rem 0 0;
 }
+#gallery .row * {
+  padding: 0;
+}

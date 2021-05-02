@@ -200,6 +200,60 @@
     </section>
     <!-- end projects -->
 
+    <!-- gallery -->
+    <section id="gallery">
+      <div class="container">
+        <div class="row text-center mb-3">
+          <div class="col">
+            <h2>Gallery</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <a href="#"
+              ><img src="img/thumbnail/gallery/1.jpg" alt="gambar1" class="img-fluid gallery-img"
+            /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="#"
+              ><img src="img/thumbnail/gallery/2.jpg" alt="gambar2" class="img-fluid gallery-img"
+            /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="#"
+              ><img src="img/thumbnail/gallery/3.jpg" alt="gambar3" class="img-fluid gallery-img"
+            /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="#"
+              ><img src="img/thumbnail/gallery/4.jpg" alt="gambar4" class="img-fluid gallery-img"
+            /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="#"
+              ><img src="img/thumbnail/gallery/5.jpg" alt="gambar5" class="img-fluid gallery-img"
+            /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="#"
+              ><img src="img/thumbnail/gallery/6.jpg" alt="gambar6" class="img-fluid gallery-img"
+            /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="#"
+              ><img src="img/thumbnail/gallery/7.jpg" alt="gambar7" class="img-fluid gallery-img"
+            /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="#"
+              ><img src="img/thumbnail/gallery/8.jpg" alt="gambar8" class="img-fluid gallery-img"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end gallery -->
+
     <!-- contact -->
     <section id="contact">
       <div class="container">
@@ -297,6 +351,12 @@
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+      const galleryImg = document.querySelectorAll('.gallery-img');
+      galleryImg.forEach((img, index) => {
+        img.dataset.aos = 'fade-down';
+        img.dataset.aosDelay = index * 100;
+      });
+
       AOS.init({
         once: true,
       });
